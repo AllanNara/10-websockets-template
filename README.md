@@ -1,6 +1,6 @@
 ## Desafio Websockets + Handlebars - Template
 
-Esta plantilla fue creada a modo de guía, por lo que no es necesario que se siga estrictamente, sientase libre de modificarla a su gusto o prescindir de éste, siempre y cuando se cumplan las exitencias de la preentrega.
+Esta plantilla fue creada a modo de guía, por lo que no es necesario que se siga estrictamente, sientase libre de modificarla a su gusto o prescindir de éste, siempre y cuando se cumplan las exitencias del desafío.
 
 ## Modo de uso
 
