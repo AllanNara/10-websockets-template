@@ -1,14 +1,14 @@
 <h1>REAL TIME PRODUCTS</h1>
 
+<h2>Agregar un nuevo producto</h2>
+<form>
+	<input type="text" id="title" placeholder="Nombre del producto">
+	<input type="text" id="description" placeholder="Descripcion">
+	<input type="number" id="price" placeholder="Precio">
+	<button type="submit">Enviar</button>
+</form>
 
+<div id="products"></div>
 
-
-
-
-
-
-
-{{!-- Estos scripts son los que nos van a conectar con socket.io --}}
-{{!-- y con nuestro archivo js de la carpeta public --}}
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/realtimeproducts.js"></script>
