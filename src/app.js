@@ -29,13 +29,17 @@ app.use("/", viewsRouter);
 
 // PARA ENVIAR Y GUARDAR NUESTROS PRODUCTOS, HAREMOS USO DE NUESTRO MANAGER
 const manager = new ProductManager(path.resolve(__dirname, "../DB/productos.json"))
-io.on("connection", (socket) => {
+io.on("connection", async(socket) => {
   console.log(`New socket connected with ID: ${socket.id}`);
 
   // EMITIMOS UN EVENTO PARA ENVIAR TODOS LOS PRODUCTOS AL CLIENTE
-  socket.emit("evento...")
+  socket.emit("productList", await manager.getProducts())
 
   // ESCUCHAMOS NUESTRO EVENTO PARA RECIBIR Y GUARDAR EL PRODUCTO,
   // PARA LUEGO ENVIARLO A TODOS LOS SOCKETS CONECTADOS
-  socket.on("evento...", () => {})
+  socket.on("newProduct", async(data) => {
+    await manager.addProduct(data);
+    io.emit("productList", await manager.getProducts())
+  })
+  
 })
