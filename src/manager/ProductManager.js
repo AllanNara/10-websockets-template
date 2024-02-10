@@ -1,5 +1,7 @@
 import fs from "fs/promises";
 
+// ESTE PRODUCT MANAGER TIENE LO MINIMO E INDISPENSABLE PARA PODER FUNCIONAR PARA EL DESAFIO,
+// LA RECOMENDACION ES UTILIZAR EL PROPIO, YA QUE ESTE CARECE DE OTROS METODOS Y CONTROLES
 class ProductManager {
   constructor(path) {
     this.path = path
@@ -22,24 +24,13 @@ class ProductManager {
   }
 
   async getProducts() {
-    try {
-      const json = await fs.readFile(this.path, "utf-8");
-      return JSON.parse(json);
-    } catch(error) {
-      console.log(`Building file...`);
-      await this.writeFile()
-      return []
-    }
+    const json = await fs.readFile(this.path, "utf-8");
+    return JSON.parse(json);
   }
 
   async writeFile(obj = []) {
-    try {
-      const json = JSON.stringify(obj, null, 2);
-      await fs.writeFile(this.path, json, 'utf-8')
-      return true  
-    } catch (error) {
-      console.log(error)
-    }
+    const json = JSON.stringify(obj, null, 2);
+    await fs.writeFile(this.path, json, 'utf-8')
   }
 }
 
